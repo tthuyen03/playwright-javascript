@@ -1,0 +1,99 @@
+[
+  {
+    "testsummary": "Login with valid username and password",
+    "username": "standard_user",
+    "password": "secret_sauce",
+    "expectedOutcome": "success"
+  },
+  {
+    "testsummary": "Login with leading space in username",
+    "username": " problem_user",
+    "password": "secret_sauce",
+    "expectedOutcome": "failure",
+    "expectedErrorMessage": "Epic sadface: Username and password do not match any user in this service"
+  },
+  {
+    "testsummary": "Login with trailing space in username",
+    "username": "problem_user ",
+    "password": "secret_sauce",
+    "expectedOutcome": "failure",
+    "expectedErrorMessage": "Epic sadface: Username and password do not match any user in this service"
+  },
+  {
+    "testsummary": "Login with leading and trailing spaces in username",
+    "username": " problem_user ",
+    "password": "secret_sauce",
+    "expectedOutcome": "failure",
+    "expectedErrorMessage": "Epic sadface: Username and password do not match any user in this service"
+  },
+  {
+    "testsummary": "Login with leading and trailing spaces in password",
+    "username": "standard_user",
+    "password": " secret_sauce ",
+    "expectedOutcome": "failure",
+    "expectedErrorMessage": "Epic sadface: Username and password do not match any user in this service"
+  },
+  {
+    "testsummary": "Login with valid username and invalid password",
+    "username": "standard_user",
+    "password": "wrong_password",
+    "expectedOutcome": "failure",
+    "expectedErrorMessage": "Epic sadface: Username and password do not match any user in this service"
+  },
+  {
+    "testsummary": "Login with invalid username and valid password",
+    "username": "invalid_user",
+    "password": "secret_sauce",
+    "expectedOutcome": "failure",
+    "expectedErrorMessage": "Epic sadface: Username and password do not match any user in this service"
+  },
+  {
+    "testsummary": "Login with both username and password empty",
+    "username": "",
+    "password": "",
+    "expectedOutcome": "failure",
+    "expectedErrorMessage": "Epic sadface: Username is required"
+  },
+  {
+    "testsummary": "Login with username empty and valid password",
+    "username": "",
+    "password": "secret_sauce",
+    "expectedOutcome": "failure",
+    "expectedErrorMessage": "Epic sadface: Username is required"
+  },
+  {
+    "testsummary": "Login with password empty and valid username",
+    "username": "standard_user",
+    "password": "",
+    "expectedOutcome": "failure",
+    "expectedErrorMessage": "Epic sadface: Password is required"
+  },
+  {
+    "testsummary": "Login with username in uppercase letters",
+    "username": "STANDARD_USER",
+    "password": "secret_sauce",
+    "expectedOutcome": "failure",
+    "expectedErrorMessage": "Epic sadface: Username and password do not match any user in this service"
+  },
+  {
+    "testsummary": "Login with password in uppercase letters",
+    "username": "standard_user",
+    "password": "SECRET_SAUCE",
+    "expectedOutcome": "failure",
+    "expectedErrorMessage": "Epic sadface: Username and password do not match any user in this service"
+  },
+  {
+    "testsummary": "Login with SQL Injection in both fields",
+    "username": "' OR 1=1 --",
+    "password": "' OR 1=1 --",
+    "expectedOutcome": "failure",
+    "expectedErrorMessage": "Epic sadface: Username and password do not match any user in this service"
+  },
+  {
+    "testsummary": "Login with locked_out_user account",
+    "username": "locked_out_user",
+    "password": "secret_sauce",
+    "expectedOutcome": "failure",
+    "expectedErrorMessage": "Epic sadface: Sorry, this user has been locked out."
+  }
+]

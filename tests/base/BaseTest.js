@@ -4,6 +4,16 @@ const HomePage = require('../../pages/HomePage');
 
 //Extend base test
 const test = baseTest.extend({
+    context: async ({ browser }, use) => {
+    const context = await browser.newContext();
+    await use(context);
+    },
+
+    page : async({context}, use) => {
+        const page = await context.newPage();
+        await use(page);
+    },
+
     loginPage : async ({page},use) => {
         const loginPage = new LoginPage(page);
         await use(loginPage);
